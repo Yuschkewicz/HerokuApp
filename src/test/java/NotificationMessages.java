@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+
 public class NotificationMessages extends BaseTest{
   @Test
     public void notification(){

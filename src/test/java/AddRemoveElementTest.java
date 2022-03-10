@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 
 public class AddRemoveElementTest extends BaseTest {
