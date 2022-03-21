@@ -1,3 +1,5 @@
+package Tests;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -10,7 +12,7 @@ public class NotificationMessages extends BaseTest{
       driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
       driver.findElement(By.xpath("//*[@id=\"content\"]/div/p/a")).click();
       String text = driver.findElement(By.xpath("//*[@id=\"flash-messages\"]")).getText();
-      assertEquals(text,"Action unsuccesful, please try again");
+      assertEquals(text,"Action unsuccesful, please try again\n×");
       // Скрытый символ "х" в результате на отдельной строчке портит всю картину
 
     }
