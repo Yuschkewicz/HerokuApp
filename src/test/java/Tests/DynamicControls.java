@@ -15,22 +15,23 @@ public class DynamicControls extends BaseTest{
 // ожидание является
 // автоматическим ассертом
 //
-    @Test
+    @Test(description = "Проверка динамических изменяемых штуковин")
     public void dynamicControlsRemoveAdd(){
+
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
-        driver.findElement(By.xpath("//*[@id=\"checkbox\"]/input")).click();
-        driver.findElement(By.xpath("//*[@id=\"checkbox-example\"]/button")).click();
+        driver.findElement(By.cssSelector("input[type=checkbox]")).click();
+        driver.findElement(By.xpath("//button[@onclick='swapCheckbox()']")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String text = driver.findElement(By.xpath("//*[@id=\"message\"]")).getText();
+        String text = driver.findElement(By.id("message")).getText();
         assertEquals(text,"It's gone!");
-        driver.findElement(By.xpath("//*[@id=\"input-example\"]/button")).click();
+        driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String text3 =driver.findElement(By.xpath("//*[@id=\"message\"]")).getText();
+        String text3 =driver.findElement(By.id("message")).getText();
         assertEquals(text3,"It's enabled!");
-        driver.findElement(By.xpath("//*[@id=\"input-example\"]/input")).sendKeys("12453466");
-        driver.findElement(By.xpath("//*[@id=\"input-example\"]/button")).click();
+        driver.findElement(By.cssSelector("input[type=text]")).sendKeys("12453466");
+        driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String text2 =driver.findElement(By.xpath("//*[@id=\"message\"]")).getText();
+        String text2 =driver.findElement(By.id("message")).getText();
         assertEquals(text2,"It's disabled!");
         driver.findElement(By.xpath("//*[@id=\"input-example\"]/button")).click();
         assertEquals( text3,"It's enabled!");
