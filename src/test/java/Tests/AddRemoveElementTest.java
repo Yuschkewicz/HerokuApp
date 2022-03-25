@@ -8,7 +8,6 @@ import static org.testng.Assert.assertEquals;
 public class AddRemoveElementTest extends BaseTest {
     WebDriver driver;
 
-
     @Test
     public void addRemoveElement(){
 
