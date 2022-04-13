@@ -16,9 +16,6 @@ public class DropDown extends BaseTest{
         assertEquals(firstOption, "Please select an option", "Name of option doesn't match");
         String secondOption = select.getOptions().get(1).getText();
         assertEquals(secondOption, "Option 1", "Name of option doesn't match");
-        String thirdOption = select.getOptions().get(2).getText();
-        assertEquals(thirdOption, "Option 2", "Name of option doesn't match");
-        assertEquals(select.getOptions().size(), 3, "Number of options doesn't match");
         assertFalse(select.getOptions().get(0).isEnabled(), "Option 0 is Enabled");
         select.selectByVisibleText("Option 1");
         assertTrue(select.getOptions().get(1).isSelected(), "Option 1 isn't selectable");
